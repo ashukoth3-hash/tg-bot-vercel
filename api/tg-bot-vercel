@@ -1,0 +1,25 @@
+module.exports = async (req, res) => {
+  const KEYS = [
+    "BOT_TOKEN",
+    "APP_URL",
+    "WEBHOOK_SECRET",
+    "UPSTASH_REDIS_URL",
+    "UPSTASH_REDIS_REST_URL",
+    "UPSTASH_REDIS_REST_TOKEN",
+    "ADMIN_ID",
+    "FORCE_JOIN",
+    "JOIN_BONUS",
+    "REFERRAL_BONUS",
+    "REFERRAL_BONUS_TASK",
+    "DAILY_BONUS",
+    "MIN_WITHDRAW",
+    "TASK1_URL"
+  ];
+
+  const out = {};
+  for (const k of KEYS) out[k] = Boolean(process.env[k]);
+  out.app_url_value = process.env.APP_URL || null; // token print नहीं करेंगे
+
+  res.setHeader("Content-Type", "application/json");
+  res.status(200).end(JSON.stringify(out));
+};
