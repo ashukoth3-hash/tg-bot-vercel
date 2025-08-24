@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "functions": {
-    "api/*.js": { "runtime": "nodejs20.x" }
-  },
   "routes": [
     { "src": "/api/telegram", "dest": "/api/telegram.js" },
     { "src": "/api/set-webhook", "dest": "/api/set-webhook.js" }
